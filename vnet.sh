@@ -10,14 +10,14 @@ export PATH
 #   	目前不能自主关闭端口
 #=================================================
 sh_ver="1.3.2"
-github="gitee.com/yunyiya/Linux-NetSpeed/raw/master"
+github="github.com/HelloWorld-create/Vnet/edit/master"
 
 Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" && Font_color_suffix="\033[0m"
 Info="${Green_font_prefix}[信息]${Font_color_suffix}"
 address="${Green_font_prefix}[管理地址]${Font_color_suffix}"
-yunyi_end="重启服务器会导致数据丢失，为了稳定运行请尽可能保证服务器稳定。
+hello_end="重启服务器会导致数据丢失，为了稳定运行请尽可能保证服务器稳定。
 执行${Green_font_prefix}vnet${Font_color_suffix}命令会再次启动此脚本"
-helloworld="github.com/HelloWorld-create" 
+HelloWorld-create="github.com/HelloWorld-create" 
 
 #开始菜单
 start_menu(){
@@ -72,7 +72,7 @@ esac
 #安装普通控制端
 check_sys_clinet(){
 	suidaoanquan
-    wget -N --no-check-certificate "https://${helloworld}/Vnet/edit/master/tunnel.zip" 
+    wget -N --no-check-certificate "https://${HelloWorld-create}/Vnet/edit/master/tunnel.zip" 
 	unzip tunnel.zip
 	chmod -R +x ./*
     nohup ./client >> /dev/null 2>&1 &
@@ -81,7 +81,7 @@ check_sys_clinet(){
     echo -e "控制端安装完成，请使用浏览器打开网址进行配置"
     echo -e ${address}
 	echo -e ${Green_font_prefix}"http://${SERVER_IP}:8080/resources/add_client.html"${Font_color_suffix}
-    echo -e $yunyi_end
+    echo -e $hello_end
 }
 
 #安装nat控制端
@@ -89,7 +89,7 @@ check_sys_natclinet(){
 	echo;read -p "请设置管理端口(该端口将被占用):" portzhuanfa
     suidaoanquan
 	iptables -t nat -A PREROUTING -p tcp --dport ${portzhuanfa} -j REDIRECT --to-port 8080
-    wget -N --no-check-certificate "https://${yunyiya}/download/linux/tunnel.zip" 
+    wget -N --no-check-certificate "https://${HelloWorld-create}/Vnet/edit/master/tunnel.zip" 
 	unzip tunnel.zip
 	chmod -R +x ./*
     nohup ./client >> /dev/null 2>&1 &
@@ -98,20 +98,20 @@ check_sys_natclinet(){
     echo -e "控制端安装完成，请使用浏览器打开网址进行配置"
 	echo -e ${address}
     echo -e ${Green_font_prefix}"http://${SERVER_IP}:${portzhuanfa}/resources/add_client.html"${Font_color_suffix}
-	echo -e $yunyi_end
+	echo -e $hello_end
 }
 
 #安装服务端
 install_server(){
 	suidaoanquan
-    wget -N --no-check-certificate "https://${yunyiya}/download/linux/tunnel.zip" && unzip tunnel.zip && chmod -R +x ./*
+    wget -N --no-check-certificate "https://${HelloWorld-create}/Vnet/edit/master/tunnel.zip" && unzip tunnel.zip && chmod -R +x ./*
     nohup ./server >> /dev/null 2>&1 &
 	echo "alias vnet=bash /root/vnet.sh" >> /root/.bashrc
 	clear
 	echo -e "服务端安装完成，请使用浏览器打开网址进行配置"
 	echo -e ${address}
     echo -e ${Green_font_prefix}"http://${SERVER_IP}:8081/resources/add_server.html"${Font_color_suffix}
-	echo -e $yunyi_end
+	echo -e $hello_end
 }
 
 #重启客户端
