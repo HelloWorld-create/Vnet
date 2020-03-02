@@ -5,10 +5,9 @@ export PATH
 #=================================================
 #	Vnet-Tunnel一键安装脚本
 #	Version: 1.0
-#	Author: 云艺博客
-#	Blog: https://www.yunyiya.com/
-#   本人能力有限，仅支持Centos7 x64系统
-#   关闭端口命令有时间再写，先咕咕咕
+#	Author: HelloWorld-create
+#   	目前仅支持Centos7 x64系统
+#   	目前不能自主关闭端口
 #=================================================
 sh_ver="1.3.2"
 github="gitee.com/yunyiya/Linux-NetSpeed/raw/master"
@@ -18,13 +17,12 @@ Info="${Green_font_prefix}[信息]${Font_color_suffix}"
 address="${Green_font_prefix}[管理地址]${Font_color_suffix}"
 yunyi_end="重启服务器会导致数据丢失，为了稳定运行请尽可能保证服务器稳定。
 执行${Green_font_prefix}vnet${Font_color_suffix}命令会再次启动此脚本"
-yunyiya="www.yunyiya.com" 
+helloworld="github.com/HelloWorld-create" 
 
 #开始菜单
 start_menu(){
   clear
 echo && echo -e " Vnet隧道一键安装脚本
- 云艺博客 | yunyiya.com 
   
 ————————————请选择安装类型————————————
  ${Green_font_prefix}1.${Font_color_suffix} 安装控制端(普通机器)
@@ -74,7 +72,7 @@ esac
 #安装普通控制端
 check_sys_clinet(){
 	suidaoanquan
-    wget -N --no-check-certificate "https://${yunyiya}/download/linux/tunnel.zip" 
+    wget -N --no-check-certificate "https://${helloworld}/Vnet/edit/master/tunnel.zip" 
 	unzip tunnel.zip
 	chmod -R +x ./*
     nohup ./client >> /dev/null 2>&1 &
